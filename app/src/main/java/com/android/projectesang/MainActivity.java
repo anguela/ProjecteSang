@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,7 +25,9 @@ public class MainActivity extends Activity {
         quantitat = prefs.getString("quantitat", "");
         textt = (TextView) findViewById(R.id.textinici);
         text = "Hola "+nombre+", has donat "+quantitat+" cops!";
+        textt.setText(text);
 
+       /*
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         String[] names = getResources().getStringArray(R.array.nav_drawer_items);
@@ -38,9 +37,11 @@ public class MainActivity extends Activity {
                 android.R.layout.simple_list_item_1, names);
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(new DrawerItemClickListener());
+        */
+        
     }
 
-
+/*
     private class DrawerItemClickListener implements
             ListView.OnItemClickListener {
 
@@ -63,6 +64,6 @@ public class MainActivity extends Activity {
             default:
                 break;
         }
-    }
+    }*/
 
 }
