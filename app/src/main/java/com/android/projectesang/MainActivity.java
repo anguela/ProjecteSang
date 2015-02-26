@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(new DrawerItemClickListener());
         */
-        
+
     }
 
 /*
