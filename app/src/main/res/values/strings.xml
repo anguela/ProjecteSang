@@ -8,7 +8,7 @@
     <string-array name="nav_drawer_items">
         <item >Inici</item>
         <item >Mapa</item>
-        <item >Reserves</item>
+        <item >Reserves de sang</item>
         <item >Curiositats</item>
         <item >Ajuda</item>
         <item >Preferències</item>

@@ -29,10 +29,10 @@ public class RegisterActivity extends ActionBarActivity {
         quantitat = quant.getText().toString();
 
         SharedPreferences prefs = getSharedPreferences(
-                " com.android.projectesang", Context.MODE_PRIVATE);
+                "com.android.projectesang", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("nombre", nombre);
-        editor.putString("edat", grupo);
+        editor.putString("grupo", grupo);
         editor.putString("quantitat", quantitat);
         editor.commit();
         Intent intent = new Intent(this, MainActivity.class);

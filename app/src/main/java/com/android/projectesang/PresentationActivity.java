@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Window;
 import android.view.WindowManager;
 
 import java.util.Timer;
@@ -17,13 +16,12 @@ public class PresentationActivity extends ActionBarActivity {
     private final static String TAG = PresentationActivity.class.getName();
     private static final long SPLASH_SCREEN_DELAY = 2000;
     String nombre;
-    String contra;
     Intent intentt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_presentation);
         TimerTask task = new TimerTask() {
@@ -42,14 +40,14 @@ public class PresentationActivity extends ActionBarActivity {
         //Sirve para aceder al archivo de preferencias y recuperar el nombre y la contraseña
         SharedPreferences prefs = getSharedPreferences("com.android.projectesang", Context.MODE_PRIVATE);
         nombre = prefs.getString("nombre", "");
-        Log.d("Nombre guardado: ", nombre);
+        Log.e("Nombre guardado: ", nombre);
 
         if (nombre != "") {
-            intentt = new Intent(this, RegisterActivity.class);
+            intentt = new Intent(this, MainActivity.class);
             startActivity(intentt);
             finish();
         } else {
-            intentt = new Intent(this, MainActivity.class);
+            intentt = new Intent(this, RegisterActivity.class);
             startActivity(intentt);
             finish();
         }

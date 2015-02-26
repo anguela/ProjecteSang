@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
         quantitat = prefs.getString("quantitat", "");
         textt = (TextView) findViewById(R.id.textinici);
         text = "Hola "+nombre+", has donat "+quantitat+" cops!";
-
+        textt.setText(text);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         String[] names = getResources().getStringArray(R.array.nav_drawer_items);
