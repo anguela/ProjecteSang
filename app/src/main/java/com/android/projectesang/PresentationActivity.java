@@ -1,18 +1,21 @@
 package com.android.projectesang;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class PresentationActivity extends ActionBarActivity {
+public class PresentationActivity extends Activity {
     private final static String TAG = PresentationActivity.class.getName();
     private static final long SPLASH_SCREEN_DELAY = 2000;
     String nombre;
@@ -21,8 +24,20 @@ public class PresentationActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        if (Build.VERSION.SDK_INT < 16) {
+            Log.e("Version: ", "< than 16");
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+        else{
+            Log.e("Version: ", "> than 16");
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+            decorView.setSystemUiVisibility(uiOptions);
+            ActionBar actionBar = getActionBar();
+            actionBar.hide();
+        }
+
         setContentView(R.layout.activity_presentation);
         TimerTask task = new TimerTask() {
             @Override
